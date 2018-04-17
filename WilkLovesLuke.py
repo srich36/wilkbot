@@ -12,12 +12,15 @@ accesstokensecret1 = "3OCXgQ0vhfup7UThqsf1gItbFPbMJOWR0jA9KVVBOPlGM"
 #authenticate I love LUuke
 api = twitter.Api(consumer_key=consumerkey1,consumer_secret=consumersecret1,access_token_key=accesstoken1, access_token_secret=accesstokensecret1)
 users = api.GetFriends()
-print([u.name for u in users])
-
+counter = 5
 while(True):
    rand = randint(1, 40)
-   status = api.PostUpdate('I LOVE LUKE @haus_of_pain15 ' + '!'*rand, media="Wilk.PNG")
+   if counter % 5 != 0:
+      status = api.PostUpdate('I LOVE LUKE @haus_of_pain15 ' + '!'*rand, media="Wilk.PNG")
+   else:
+      status = api.PostUpdate('I LOVE LUKE @haus_of_pain15 ' + 'and I LOVE THE STIFFY @WiffieStiffie17'+ '!'*rand, media="Stiffy.jpg")
    time.sleep(300)
+   counter+=1
 
 
 
